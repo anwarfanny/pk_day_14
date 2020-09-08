@@ -30,7 +30,13 @@ const Form = () => {
       axios
         .put(`http://localhost:3000/list/${update}`, values)
         .then((response) => {
-          console.log("berhasil update");
+          const indext = data.findIndex((item) => {
+            return item.id === id;
+          });
+          let newArr = [...data];
+          newArr[index] = response.data;
+          setData(newArr);
+          setId(null);
         });
     } else {
       axios
