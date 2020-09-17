@@ -1,25 +1,27 @@
 import React from "react";
-import { unstable_batchedUpdates } from "react-dom";
 
 const Table = (props) => {
+  const { todo, remove, update } = props;
+
   const mapdata = todo.map((data, index) => {
     return (
-      <tr key={data.id}>
+      <tr key={index}>
         <th scope="row">{index + 1}</th>
-        <td>{data.list}</td>
-        <td>{data.Activites}</td>
+        <td>{data.daya}</td>
+        <td>{data.Activies}</td>
         <td>
           <button className="btn btn-danger" onClick={() => remove(daya.id)}>
             Delete
           </button>
           &nbps;
-          <button className="btn btn-secondary" onClick={() => update(data.id)}>
-            Edit
+          <button className="btn btn-primary" onClick={() => update(data.id)}>
+            update
           </button>
         </td>
       </tr>
     );
   });
+
   return (
     <div className="container">
       <table className="table table-striped">
@@ -36,6 +38,5 @@ const Table = (props) => {
     </div>
   );
 };
-export default Table;
 
 export default Table;
