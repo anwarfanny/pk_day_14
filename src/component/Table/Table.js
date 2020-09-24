@@ -3,14 +3,14 @@ import React from "react";
 const Table = (props) => {
   const { todo, remove, update } = props;
 
-  const mapdata = todo.map((data, index) => {
+  const mapData = todo.map((data, index) => {
     return (
       <tr key={index}>
         <th scope="row">{index + 1}</th>
-        <td>{data.daya}</td>
+        <td>{data.Day}</td>
         <td>{data.Activies}</td>
         <td>
-          <button className="btn btn-danger" onClick={() => remove(daya.id)}>
+          <button className="btn btn-danger" onClick={() => remove(item.id)}>
             Delete
           </button>
           &nbps;

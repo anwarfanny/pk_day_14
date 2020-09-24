@@ -1,17 +1,18 @@
 import React, { useState, useEffectn, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux"
-import {AddTodos, DeleteTodos, UpdateTodos } from "../../Store/actions/todos"
+import { AddTodos, DeleteTodos, UpdateTodos } from "../../Store/actions/todos"
 import Table from "../Table/Table.js";
 
-const form = (props) => {
-  const { todos, addTodo, deleteTodos } = props
-
+const Form = (props) => {
+  const { todos, addTodo, deleteTodos, updateData } = props
   const [data, setData] = useState([]);
   const [Id, setId] = useState(null);
 
   useEffect(() => {
     setData(todos)
+  }, {todos, id}
+  cosnt { handleSubmit, register, errors, }
     //const getData = () => {
       //axios
         //.get("http://localhost:3000/list")
@@ -25,6 +26,21 @@ const form = (props) => {
     ///};
     //getData();
   }, [todos]);
+
+  const onUpadate = (id) => {
+    setId()
+    const findItem = data.find{{item} => item.id === id
+    if (findItem){
+      setValue("day", findItem.day, {
+        shouldValidate: true,
+        shouldDirty: true,
+      })
+      setValue("activies", findItem.activies, {
+        shouldValidate: true,
+        shouldDirty: true,
+      })
+    }}
+  }
 
   const { handleSubmit, register, setValue, errors } = useForm();
   const onSubmit = (values, e) => {
@@ -128,8 +144,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addTodo: (value) => dispatch(addTodos(value)),
     deleteTodo: (id) => dispatch(DeleteTodos(id)),
-    UpdateTodo: (id) => dispatch(UpdateTodos(id)),
+    UpdateData: (value) => dispatch(UpdateData(id)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(form)
+export default connect(mapStateToProps, mapDispatchToProps)(Form)

@@ -4,15 +4,32 @@ const initialState = [];
 let countId = 0;
 
 const addTodo = (state, payload) => {
+
+}
+const deleteTodo = (state, payload) => {
+
+}
+
+const addTodo = (state, payload) => {
   return [
     ...state,
     {
-      id: countId++,
-      Day: payload.Day,
-      Activies: payload.Activies,
+      id: payload,
+      Day: payload.values.Day,
+      Activies: payload.values.Activies,
     },
   ];
 };
+const updateTodo = (state,payload) => {
+  const obj = {
+    id: payload.id,
+    day: payload.value.day,
+    Activies: payload.value.activies
+  }
+  const newArr = {...state}
+  newArr(index) = obj
+  return newArr
+}
 
 const deleteItem = (state, payload) => {
   const updateArray = state.filter((item) => item.id !== payload);
@@ -29,7 +46,7 @@ const Todos = (state = initialState, action) => {
     case actionTypes.UPDATE_TODOS:
       return state, payload;
     default:
-      return;
+      return state
   }
 };
 
