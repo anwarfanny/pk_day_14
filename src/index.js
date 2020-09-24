@@ -5,9 +5,9 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { cretaeStore } from "redux";
-import rootRedudcers from "./Store/reducer/index";
+import rootReducers from "./Store/reducer/index";
 
-const store = cretaeStore(rootRedudcers);
+const store = cretaeStore(rootReducers);
 ReactDOM.render(
   <Provider store={store}>
     <App />
